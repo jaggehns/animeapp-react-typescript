@@ -44,7 +44,7 @@ const Carousel: FC = () => {
         <Link
           key={anime.mal_id}
           className={classes.carouselItem}
-          to={`animeapp-react-typescript/anime/${anime.title}`}
+          to={`animeapp-react-typescript/anime/${anime.mal_id}`}
         >
           <img
             src={anime.images.jpg.image_url}
