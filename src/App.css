@@ -11,3 +11,61 @@ a {
   text-decoration: none;
   color: gold;
 }
+
+.animeTableWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   align-items: center;
+}
+
+.movieWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 60%;
+  padding: 0 0 70px 0;
+  gap: 20px;
+}
+
+.media {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  padding: 5px;
+  margin: 5px 0;
+  background-color: #282c34;
+  border-radius: 10px;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+}
+
+.media:hover {
+  background-color: white;
+  color: black;
+}
+
+/* @media (max-width: 360px) {
+  .media {
+    width: 46%;
+  }
+} */
+
+.poster {
+  border-radius: 10px;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  padding: 8px 0;
+}
+
+.subTitle {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3px;
+  padding: 0 2px;
+  padding-bottom: 3px;
+}

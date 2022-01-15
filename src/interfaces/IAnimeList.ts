@@ -1,4 +1,4 @@
-export default interface IPopularAnimes {
+export interface IAnimeList {
   mal_id: number
   rank: number
   title: string

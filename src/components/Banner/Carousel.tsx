@@ -28,30 +28,36 @@ const Carousel: FC = () => {
   const classes = useStyles()
 
   const fetchPopularAnimes = async () => {
-    const popularAnimes = await axios.get(TopAnimes())
-
-    setPopular(popularAnimes.data.data)
-    console.log(popularAnimes.data.data)
+    await axios
+      .get(TopAnimes())
+      .then(popularAnimes => {
+        setPopular(popularAnimes.data.top)
+        console.log(popularAnimes.data.top)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   useEffect(() => {
     fetchPopularAnimes()
   }, [])
 
-  const items = popular.map(anime => {
+  const items = popular.slice(0, 10).map(anime => {
     return (
       <>
         <Link key={anime.mal_id} className={classes.carouselItem} to={`/anime/${anime.mal_id}`}>
           <img
-            src={anime.images.jpg.image_url}
+            src={anime.image_url}
             alt={anime.title}
-            height='80'
-            width='85'
+            height='120'
+            width='120'
             style={{ marginBottom: 10, borderRadius: '50%' }}
           />
-          <span>{anime.title.substring(0, 22)}</span>
-          &nbsp;
-          <span>Rtg : {anime.score}</span>
+          <span style={{ color: 'gold' }}>
+            {anime.title.length > 20 ? `${anime.title.substring(0, 15)}...` : anime.title}
+          </span>
+          <span style={{ color: 'green', fontWeight: 500 }}>RTG : {anime.score}</span>
         </Link>
       </>
     )
@@ -61,7 +67,7 @@ const Carousel: FC = () => {
     0: {
       items: 2,
     },
-    512: {
+    720: {
       items: 4,
     },
   }
