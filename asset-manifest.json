@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/animeapp-react-typescript/static/css/main.1a9a7a29.css",
-    "main.js": "/animeapp-react-typescript/static/js/main.3d221791.js",
+    "main.css": "/animeapp-react-typescript/static/css/main.4f2a8d01.css",
+    "main.js": "/animeapp-react-typescript/static/js/main.f23e7327.js",
     "static/js/787.6c31286d.chunk.js": "/animeapp-react-typescript/static/js/787.6c31286d.chunk.js",
     "static/media/banner.jpg": "/animeapp-react-typescript/static/media/banner.19419d69e5001e322fee.jpg",
     "index.html": "/animeapp-react-typescript/index.html",
-    "main.1a9a7a29.css.map": "/animeapp-react-typescript/static/css/main.1a9a7a29.css.map",
-    "main.3d221791.js.map": "/animeapp-react-typescript/static/js/main.3d221791.js.map",
+    "main.4f2a8d01.css.map": "/animeapp-react-typescript/static/css/main.4f2a8d01.css.map",
+    "main.f23e7327.js.map": "/animeapp-react-typescript/static/js/main.f23e7327.js.map",
     "787.6c31286d.chunk.js.map": "/animeapp-react-typescript/static/js/787.6c31286d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a9a7a29.css",
-    "static/js/main.3d221791.js"
+    "static/css/main.4f2a8d01.css",
+    "static/js/main.f23e7327.js"
   ]
 }
