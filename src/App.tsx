@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core'
 import './App.css'
 import Header from './components/Header'
@@ -21,8 +21,9 @@ function App() {
       <div className={classes.App}>
         <Header />
         <Routes>
-          <Route path='/' element={<Homepage />} />
-          <Route path='/anime/:id' element={<AnimePage />} />
+          <Route path='/' element={<Navigate to='/animeapp-react-typescript' />} />
+          <Route path='/animeapp-react-typescript' element={<Homepage />} />
+          <Route path='/animeapp-react-typescript/anime/:id' element={<AnimePage />} />
         </Routes>
       </div>
     </BrowserRouter>
