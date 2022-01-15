@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
 import './App.css'
 import Header from './components/Header'
 import AnimePage from './pages/AnimePage'
