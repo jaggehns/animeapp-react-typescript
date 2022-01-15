@@ -41,11 +41,7 @@ const Carousel: FC = () => {
   const items = popular.map(anime => {
     return (
       <>
-        <Link
-          key={anime.mal_id}
-          className={classes.carouselItem}
-          to={`animeapp-react-typescript/anime/${anime.mal_id}`}
-        >
+        <Link key={anime.mal_id} className={classes.carouselItem} to={`/anime/${anime.mal_id}`}>
           <img
             src={anime.images.jpg.image_url}
             alt={anime.title}
