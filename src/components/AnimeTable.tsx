@@ -68,12 +68,17 @@ const AnimeTable: FC = () => {
   }, [])
 
   useEffect(() => {
+    let isApiSubscribed = true
     if (search?.length >= 3) {
       searchAnimes()
     } else if (search?.length === 0) {
       fetchAnimes()
     } else {
       console.log('Error')
+    }
+
+    return () => {
+      isApiSubscribed = false
     }
   }, [search])
 
