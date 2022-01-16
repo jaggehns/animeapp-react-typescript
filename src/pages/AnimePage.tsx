@@ -94,9 +94,11 @@ const AnimePage: FC = () => {
 
   const classes = useStyles()
 
+  if (error) return <ErrorPage />
+
   return loading ? (
     <LinearProgress style={{ backgroundColor: 'gold' }} />
-  ) : !loading && anime && !error ? (
+  ) : (
     <div className={classes.container}>
       <div className={classes.main}>
         <img src={anime?.image_url} alt={anime?.title} style={{ marginBottom: 20 }} />
@@ -143,8 +145,6 @@ const AnimePage: FC = () => {
         </div>
       </div>
     </div>
-  ) : (
-    <ErrorPage />
   )
 }
 
