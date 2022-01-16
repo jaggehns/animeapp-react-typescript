@@ -5,6 +5,7 @@ import { AnimeList, AnimeSearch } from '../config/api'
 import { IAnimeList } from '../interfaces/IAnimeList'
 import AnimeCard from './AnimeCard'
 import { Pagination } from '@material-ui/lab'
+const debounce = require('lodash.debounce')
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const useStyles = makeStyles(theme => ({
@@ -45,6 +46,7 @@ const AnimeTable: FC = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [search, setSearch] = useState<string>('')
   const [page, setPage] = useState<number>(1)
+  const [error, setError] = useState<boolean>(false)
 
   const classes = useStyles()
 
@@ -61,6 +63,8 @@ const AnimeTable: FC = () => {
       })
       .catch(err => {
         console.log(err)
+        setError(true)
+        setLoading(false)
       })
   }
 
@@ -70,6 +74,7 @@ const AnimeTable: FC = () => {
   }
 
   const fetchAnimes = async () => {
+    console.log('Hello')
     setLoading(true)
     if (!search || search.length === 0) {
       setPage(1)
@@ -85,16 +90,19 @@ const AnimeTable: FC = () => {
       })
       .catch(err => {
         console.log(err)
+        setError(true)
+        setLoading(false)
       })
   }
 
+  //useEffect for initial render and when searchbar empty
   useEffect(() => {
     if (!search || search.length === 0) {
-      setPage(1)
       fetchAnimes()
     }
   }, [page])
 
+  //useEffect for searchQueries
   useEffect(() => {
     let isApiSubscribed = true
     if (search?.length >= 3) {
@@ -108,10 +116,11 @@ const AnimeTable: FC = () => {
     }
   }, [search, page])
 
-  // const handleChange = e => {
-  //   setSearch(e)
-  //
-  // }
+  const updateQuery = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e?.target?.value)
+
+  //debouncing API calls(250ms)
+  const debouncedOnChange = debounce(updateQuery, 250)
+
   return (
     <div className='animeTableWrapper'>
       <div className={classes.textFieldWrapper}>
@@ -121,16 +130,29 @@ const AnimeTable: FC = () => {
           placeholder='Search For an Anime... (min 3 char)'
           style={{ width: '100%' }}
           InputProps={{ classes: { input: classes.input } }}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+          onChange={debouncedOnChange}
         />
       </div>
       {loading ? (
         <LinearProgress style={{ backgroundColor: 'gold' }} />
-      ) : (
+      ) : !loading && !error ? (
         <div className='movieWrapper'>
           {animeList.map(anime => {
             return <AnimeCard key={anime.mal_id} anime={anime} />
           })}
+        </div>
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <h1 style={{ color: 'white' }}>
+            Sorry, we have run into an issue. This could be an api limitation
+          </h1>
         </div>
       )}
       <Pagination
