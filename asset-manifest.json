@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/animeapp-react-typescript/static/css/main.4f2a8d01.css",
-    "main.js": "/animeapp-react-typescript/static/js/main.52c077f2.js",
+    "main.js": "/animeapp-react-typescript/static/js/main.f8b6bb07.js",
     "static/js/787.6c31286d.chunk.js": "/animeapp-react-typescript/static/js/787.6c31286d.chunk.js",
     "static/media/banner.jpg": "/animeapp-react-typescript/static/media/banner.19419d69e5001e322fee.jpg",
     "index.html": "/animeapp-react-typescript/index.html",
     "main.4f2a8d01.css.map": "/animeapp-react-typescript/static/css/main.4f2a8d01.css.map",
-    "main.52c077f2.js.map": "/animeapp-react-typescript/static/js/main.52c077f2.js.map",
+    "main.f8b6bb07.js.map": "/animeapp-react-typescript/static/js/main.f8b6bb07.js.map",
     "787.6c31286d.chunk.js.map": "/animeapp-react-typescript/static/js/787.6c31286d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4f2a8d01.css",
-    "static/js/main.52c077f2.js"
+    "static/js/main.f8b6bb07.js"
   ]
 }
