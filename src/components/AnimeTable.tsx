@@ -113,7 +113,11 @@ const AnimeTable: FC = () => {
     }
   }, [search, page])
 
-  const updateQuery = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e?.target?.value)
+  const handleSearch = (searchQuery: string) => {
+    setSearch(searchQuery)
+  }
+
+  const updateQuery = (e: React.ChangeEvent<HTMLInputElement>) => handleSearch(e?.target?.value)
 
   //debouncing API calls(250ms)
   const debouncedOnChange = debounce(updateQuery, 250)
