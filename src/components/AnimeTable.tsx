@@ -70,15 +70,12 @@ const AnimeTable: FC = () => {
 
   const handleChange = (page: number): void => {
     setPage(page)
-    window.scroll(0, 0)
   }
 
   const fetchAnimes = async () => {
     console.log('Hello')
     setLoading(true)
-    if (!search || search.length === 0) {
-      setPage(1)
-    }
+
     const currentPage = page
 
     await axios
@@ -97,7 +94,7 @@ const AnimeTable: FC = () => {
 
   //useEffect for initial render and when searchbar empty
   useEffect(() => {
-    if (!search || search.length === 0) {
+    if (!search) {
       fetchAnimes()
     }
   }, [page])
