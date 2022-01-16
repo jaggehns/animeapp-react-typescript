@@ -15,3 +15,6 @@ export const AnimeSearch = (searchQuery: string, page?: number): string => {
   }
   return `https://api.jikan.moe/v3/search/anime?q=${searchQuery}&page=${page}`
 }
+export const SingleAnime = (id: string): string => {
+  return `https://api.jikan.moe/v3/anime/${id}`
+}

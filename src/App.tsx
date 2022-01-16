@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/Header'
 import AnimePage from './pages/AnimePage'
 import Homepage from './pages/Homepage'
+import ErrorPage from './pages/ErrorPage'
 
 function App() {
   const useStyles = makeStyles(() => ({
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/anime/:id' element={<AnimePage />} />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
       </div>
     </HashRouter>
