@@ -135,6 +135,7 @@ const AnimeTable: FC = () => {
       )}
       <Pagination
         variant='outlined'
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         onChange={(e: any) => handleChange(e.target.textContent)}
         style={{
           padding: 20,
